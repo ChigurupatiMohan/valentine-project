@@ -62,7 +62,7 @@
             padding: 40px;
             border-radius: 20px;
             text-align: center;
-            width: 600px;
+            width: 900px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
             animation: pop 1s ease;
         }
@@ -83,19 +83,21 @@
             color: #ff4d6d;
             margin-bottom: 10px;
             font-size: 60px;
+            text-align: center;
         }
 
         p {
             color: #555;
             font-size: 36px;
             line-height: 1.5;
+            text-align: center;
         }
 
         .heart {
             font-size: 120px;
             animation: beat 1s infinite;
             color: #ff4d6d;
-            margin: 20px 0;
+            margin: 20px 190px;
         }
 
         @keyframes beat {
@@ -145,7 +147,6 @@
             }
         }
 
-
         .music-controls {
             position: fixed;
             bottom: 20px;
@@ -180,7 +181,7 @@
         }
 
         /* cinematic fade in */
-        .movie-loader {
+        .movieloader {
             text-align: center;
             animation: cinematicFade 2s ease;
         }
@@ -213,7 +214,7 @@
 
         /* progress bar */
         .loading-bar {
-            width: 420px; 
+            width: 420px;
             height: 14px;
             background: rgba(255, 255, 255, 0.2);
             border-radius: 30px;
@@ -243,14 +244,33 @@
             font-size: 28px;
             letter-spacing: 1px;
         }
+
+/* 🎁 Surprise Page Layout */
+.surprise-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+}
+
+.surprise-image img {
+    width: 250px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.surprise-content {
+    text-align: left;
+}
+
     </style>
 </head>
 
 <body>
 
-     <!-- 🎬 ROMANTIC MOVIE INTRO LOADER -->
+    <!-- 🎬 ROMANTIC MOVIE INTRO LOADER -->
     <div id="loader">
-        <div class="movie-loader">
+        <div class="movieloader">
             <p class="movie-small">A Love Story Begins...</p>
 
             <h1 class="movie-title">
@@ -282,7 +302,7 @@
 
     <!-- HOME PAGE -->
     <div class="home" id="homePage">
-        <h1> Will you be my Valentine?</h1>
+        <h1> Harshini, Will you be my Valentine?</h1>
         <div class="heart">💖</div>
         <p>
             You make my world brighter, my smile wider,
@@ -305,17 +325,32 @@
             and make every second feel magical tonight.💖💕
         </p>
 
-        <button onclick="goToSurprise()">Next 💝</button>
+        <button onclick="goToSurprise()">Surprise 💝</button>
     </div>
 
-    <!-- SURPRISE PAGE -->
-    <div class="card" id="surprisePage" style="display:none;">
-        <h1>Happy Valentine’s Day 💖 My Love</h1>
-        <div class="heart">💓</div>
-        <p>
-            You are my everything! Let’s make today unforgettable and full of Romance. 💖✨
-        </p>
+   <div class="card" id="surprisePage" style="display:none;">
+
+    <div class="surprise-container">
+
+        <!-- LEFT IMAGE -->
+        <div class="surprise-image">
+            <img src="hmv.jpeg" alt="Love Image">
+        </div>
+
+        <!-- RIGHT CONTENT -->
+        <div class="surprise-content">
+            <h1>Happy Valentine’s Day 💖 My Love</h1>
+            <div class="heart">💓</div>
+            <p>
+                You are my everything! Let’s make today unforgettable and full of Romance. 💖✨
+            </p>
+        </div>
+
     </div>
+
+</div>
+
+
 
     <script>
         function goToValentine() {
@@ -419,13 +454,14 @@
         document.addEventListener("click", (e) => {
             if (
                 e.target.innerText.includes("Yes") ||
-                e.target.innerText.includes("Next")
+                e.target.innerText.includes("Surprise")
             ) {
                 setTimeout(blastLoveConfetti, 200);
             }
         });
 
-         /* 🔄 LOADING PERCENTAGE SCRIPT */
+
+        /* 🔄 LOADING PERCENTAGE SCRIPT */
         window.addEventListener("load", () => {
 
             let percent = 0;
@@ -440,17 +476,17 @@
 
                 if (percent >= 100) {
                     clearInterval(interval);
-                    
-                    setTimeout(() => { document.getElementById("loader").style.display = "none";
 
-                     }, 1000);
-                 }
-                    }, 60); // speed of loading
+                    setTimeout(() => {
+                        document.getElementById("loader").style.display = "none";
+
+                    }, 1000);
+                }
+            }, 60); // speed of loading
         });
+
     </script>
 
 </body>
 
 </html>
-
-

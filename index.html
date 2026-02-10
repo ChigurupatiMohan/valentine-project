@@ -9,7 +9,6 @@
         body {
             margin: 0;
             height: 100vh;
-            background: linear-gradient(135deg, #ff758c, #ff7eb3);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -18,7 +17,6 @@
         }
 
         .home {
-            background: white;
             padding: 60px;
             border-radius: 20px;
             text-align: center;
@@ -34,7 +32,7 @@
         }
 
         .home p {
-            color: #555;
+            color: #7b6868;
             font-size: 29px;
             line-height: 1.5;
         }
@@ -58,7 +56,6 @@
         }
 
         .card {
-            background: white;
             padding: 40px 80px;
             border-radius: 20px;
             text-align: center;
@@ -87,7 +84,7 @@
         }
 
         p {
-            color: #555;
+            color: #7b6868;
             font-size: 27px;
             line-height: 1.5;
             text-align: center;
@@ -245,33 +242,156 @@
             letter-spacing: 1px;
         }
 
-/* 🎁 Surprise Page Layout */
-.surprise-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 13px;
-    padding-left: 100px;
-    padding-right: 76px;
-   
-}
+        /* 🎁 Surprise Page Layout */
+        .surprise-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 13px;
+            padding-left: 100px;
+            padding-right: 76px;
 
-.surprise-image img {
-    width: 300px;
-    border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-}
+        }
 
-.surprise-content {
-    text-align: left;
-}
+        .surprise-image img {
+            width: 300px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
 
+        .surprise-content {
+            text-align: left;
+        }
+
+        /* ============================= */
+        /* 💎 PREMIUM ROMANTIC BACKGROUND */
+        /* ============================= */
+
+        /* cinematic luxury gradient base */
+        body {
+            background:
+                linear-gradient(135deg, #1a0010, #2a0018, #3d0024, #590033);
+            background-size: 400% 400%;
+            animation: premiumBG 18s ease infinite;
+        }
+
+        /* slow moving luxury gradient */
+        @keyframes premiumBG {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* glowing romantic light spots */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(circle at 15% 20%, rgba(255, 77, 109, 0.35), transparent 40%),
+                radial-gradient(circle at 85% 30%, rgba(255, 126, 179, 0.30), transparent 45%),
+                radial-gradient(circle at 50% 85%, rgba(255, 0, 120, 0.25), transparent 50%);
+            z-index: -2;
+            animation: glowMove 12s linear infinite alternate;
+        }
+
+        /* slow light movement */
+        @keyframes glowMove {
+            from {
+                transform: translateY(0px);
+            }
+
+            to {
+                transform: translateY(-40px);
+            }
+        }
+
+        /* cinematic blur glass overlay */
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            backdrop-filter: blur(60px);
+            z-index: -1;
+        }
+
+        /* ============================= */
+        /* 💎 PREMIUM GLASS CARDS */
+        /* ============================= */
+
+        .home,
+        .card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow:
+                0 25px 60px rgba(0, 0, 0, 0.6),
+                inset 0 0 20px rgba(255, 255, 255, 0.05);
+        }
+
+        /* ============================= */
+        /* ✨ PREMIUM TEXT GLOW */
+        /* ============================= */
+
+        h1 {
+            text-shadow:
+                0 0 0px rgba(255, 77, 110, 0.749),
+                0 0 0px rgba(255, 77, 109, 0.5);
+        }
+
+        .heart {
+            filter: drop-shadow(0 0 0px rgba(255, 77, 109, 0.8));
+        }
+
+        /* ============================= */
+        /* 💖 PREMIUM BUTTON STYLE */
+        /* ============================= */
+
+        button {
+            background: linear-gradient(135deg, #ff4d6d, #ff1f57);
+            box-shadow:
+                0 10px 25px rgba(255, 77, 109, 0.5),
+                inset 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            box-shadow:
+                0 15px 40px rgba(255, 77, 109, 0.8);
+        }
+
+        /* ============================= */
+        /* 🌹 PREMIUM FLOATING AURA */
+        /* ============================= */
+
+        .home::before,
+        .card::before {
+            content: "";
+            position: absolute;
+            inset: -2px;
+            border-radius: 25px;
+            background: linear-gradient(135deg,
+                    rgba(255, 77, 109, 0.4),
+                    transparent,
+                    rgba(255, 126, 179, 0.4));
+            filter: blur(35px);
+            opacity: 0.5;
+            z-index: -1;
+        }
     </style>
 </head>
 
 <body>
 
- <!-- 🎬 ROMANTIC MOVIE INTRO LOADER -->
+    <!-- 🎬 ROMANTIC MOVIE INTRO LOADER -->
     <div id="loader">
         <div class="movie-loader">
             <p class="movie-small">A Love Story Begins...</p>
@@ -331,27 +451,27 @@
         <button onclick="goToSurprise()">Surprise 💝</button>
     </div>
 
-   <div class="card" id="surprisePage" style="display:none;">
+    <div class="card" id="surprisePage" style="display:none;">
 
-    <div class="surprise-container">
+        <div class="surprise-container">
 
-        <!-- LEFT IMAGE -->
-        <div class="surprise-image">
-            <img src="hmv.jpeg" alt="Love Image">
-        </div>
+            <!-- LEFT IMAGE -->
+            <div class="surprise-image">
+                <img src="hmv.jpeg" alt="Love Image">
+            </div>
 
-        <!-- RIGHT CONTENT -->
-        <div class="surprise-content">
-            <h1>Happy Valentine’s Day 💖 My Love</h1>
-            <div class="heart">💓</div>
-            <p>
-                You are my everything! Let’s make today unforgettable and full of Romance. 💖✨
-            </p>
+            <!-- RIGHT CONTENT -->
+            <div class="surprise-content">
+                <h1>Happy Valentine’s Day 💖 My Love</h1>
+                <div class="heart">💓</div>
+                <p>
+                    You are my everything! Let’s make today unforgettable and full of Romance. 💖✨
+                </p>
+            </div>
+
         </div>
 
     </div>
-
-</div>
 
 
 
